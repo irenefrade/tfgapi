@@ -7,7 +7,8 @@ import java.net.URISyntaxException;
 import java.net.http.HttpHeaders;
 import java.util.List;
 
-import org.hibernate.validator.internal.util.logging.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -171,6 +172,7 @@ public class TFGController {
         //... métodos del controlador para el document de la memoria y la sesión
         
         @PutMapping(value = "/tfgs/{id}/memoria", consumes = "application/pdf") //el resumen del tfg es un pdf no un json
+        @io.swagger
         @io.swagger.v3.oas.annotations.Operation(
         requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
             content = {
